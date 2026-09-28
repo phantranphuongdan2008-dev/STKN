@@ -1,0 +1,1468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>RE:FIT — AI Thrift & Upcycle</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: #f3f0e8;
+        color: #12130f;
+      }
+
+      /* ================= NAVBAR ================= */
+
+      nav {
+        height: 75px;
+        padding: 0 6%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        position: sticky;
+        top: 0;
+        z-index: 100;
+
+        background: rgba(243, 240, 232, 0.92);
+        backdrop-filter: blur(15px);
+
+        border-bottom: 1px solid #d8d5cb;
+      }
+
+      .logo {
+        font-family: "Space Grotesk";
+        font-weight: 700;
+        font-size: 23px;
+      }
+
+      .logo span {
+        color: #5c8b2d;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 35px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #55564f;
+        font-size: 14px;
+      }
+
+      .nav-links a:hover {
+        color: #111;
+      }
+
+      .nav-button {
+        background: #151611;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        padding: 11px 20px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* ================= HERO ================= */
+
+      .hero {
+        min-height: calc(100vh - 75px);
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        align-items: center;
+
+        padding: 70px 8%;
+        gap: 70px;
+      }
+
+      .eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        color: #687060;
+      }
+
+      .hero h1 {
+        font-family: "Space Grotesk";
+        font-size: clamp(55px, 7vw, 95px);
+        line-height: 0.92;
+        letter-spacing: -5px;
+        margin: 25px 0;
+      }
+
+      .hero h1 span {
+        color: #5b8c2b;
+      }
+
+      .hero-description {
+        max-width: 570px;
+        font-size: 18px;
+        line-height: 1.7;
+        color: #66675f;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 15px;
+        margin-top: 35px;
+      }
+
+      .primary-button {
+        background: #151611;
+        color: white;
+        border: none;
+        padding: 16px 25px;
+        border-radius: 30px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .secondary-button {
+        background: transparent;
+        border: 1px solid #222;
+        padding: 15px 24px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+
+      /* HERO IMAGE */
+
+      .hero-visual {
+        height: 570px;
+        border-radius: 40px;
+        background: #171914;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-visual::before {
+        content: "";
+        width: 350px;
+        height: 350px;
+
+        position: absolute;
+
+        background: radial-gradient(
+          circle,
+          rgba(211, 255, 113, 0.55),
+          transparent 70%
+        );
+
+        filter: blur(10px);
+      }
+
+      .fake-shirt {
+        font-size: 260px;
+        z-index: 2;
+        filter: drop-shadow(0 25px 20px rgba(0, 0, 0, 0.4));
+      }
+
+      .ai-label {
+        position: absolute;
+        top: 25px;
+        left: 28px;
+
+        color: #d6ff77;
+        font-size: 11px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      /* ================= SECTIONS ================= */
+
+      section {
+        padding: 110px 8%;
+      }
+
+      .dark-section {
+        background: #161712;
+        color: white;
+      }
+
+      .section-label {
+        font-size: 12px;
+        letter-spacing: 3px;
+        font-weight: 700;
+        color: #777a70;
+      }
+
+      .dark-section .section-label {
+        color: #aeb29f;
+      }
+
+      .section-title {
+        font-family: "Space Grotesk";
+        font-size: clamp(42px, 5vw, 70px);
+        line-height: 1;
+        letter-spacing: -3px;
+        margin: 18px 0 55px;
+      }
+
+      .section-title span {
+        color: #bde875;
+      }
+
+      /* ================= PROCESS ================= */
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .process-card {
+        min-height: 310px;
+        border: 1px solid #383a34;
+        border-radius: 28px;
+        padding: 28px;
+      }
+
+      .process-card.featured {
+        background: #d6ff77;
+        color: #111;
+      }
+
+      .process-number {
+        font-size: 12px;
+        color: #999;
+        font-weight: bold;
+      }
+
+      .process-icon {
+        font-size: 35px;
+        margin: 45px 0 20px;
+      }
+
+      .process-card h3 {
+        font-family: "Space Grotesk";
+        font-size: 22px;
+        margin-bottom: 12px;
+      }
+
+      .process-card p {
+        color: #aeb0a7;
+        line-height: 1.6;
+      }
+
+      .featured p {
+        color: #3c452f;
+      }
+
+      /* ================= AI STUDIO ================= */
+
+      .studio {
+        background: #f3f0e8;
+      }
+
+      .studio-heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        gap: 30px;
+      }
+
+      .studio-heading p {
+        max-width: 420px;
+        color: #777870;
+        line-height: 1.6;
+      }
+
+      .studio-grid {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 20px;
+      }
+
+      .panel {
+        background: #fffdf7;
+        border: 1px solid #d7d4ca;
+        border-radius: 30px;
+        padding: 22px;
+      }
+
+      /* UPLOAD */
+
+      .upload-box {
+        height: 310px;
+
+        border: 2px dashed #aaa99e;
+        border-radius: 22px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        cursor: pointer;
+
+        background: #f7f4ec;
+
+        overflow: hidden;
+      }
+
+      .upload-box:hover {
+        border-color: #638e35;
+        background: #f1f6e8;
+      }
+
+      .upload-icon {
+        font-size: 50px;
+        margin-bottom: 10px;
+      }
+
+      .upload-box h3 {
+        font-family: "Space Grotesk";
+        margin-bottom: 8px;
+      }
+
+      .upload-box p {
+        color: #888981;
+        font-size: 13px;
+      }
+
+      #preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* FORM */
+
+      .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+
+        margin-top: 18px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .form-group.full {
+        grid-column: 1/-1;
+      }
+
+      .form-group label {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .form-group select,
+      .form-group textarea {
+        padding: 12px;
+
+        border: 1px solid #d5d2c8;
+
+        border-radius: 12px;
+
+        background: #f6f3eb;
+
+        outline: none;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+      }
+
+      /* RESULT */
+
+      .result {
+        min-height: 600px;
+      }
+
+      .empty-result {
+        height: 100%;
+
+        min-height: 550px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        color: #777870;
+      }
+
+      .empty-circle {
+        width: 85px;
+        height: 85px;
+
+        border: 1px solid #c8c6bd;
+
+        border-radius: 50%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 30px;
+
+        color: #638d35;
+
+        margin-bottom: 20px;
+      }
+
+      /* AI RESULT */
+
+      .item-info {
+        background: #edf5df;
+
+        border-radius: 20px;
+
+        padding: 18px;
+
+        margin-bottom: 20px;
+      }
+
+      .item-info h3 {
+        font-family: "Space Grotesk";
+        font-size: 25px;
+        margin-bottom: 8px;
+      }
+
+      .item-info p {
+        color: #66685f;
+        font-size: 13px;
+      }
+
+      .tag-container {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+
+        margin-top: 12px;
+      }
+
+      .tag {
+        background: white;
+        border: 1px solid #d6dacd;
+        border-radius: 20px;
+        padding: 6px 10px;
+        font-size: 11px;
+      }
+
+      .recommendation {
+        border: 1px solid #d9d6cc;
+
+        border-radius: 20px;
+
+        padding: 18px;
+
+        margin-bottom: 12px;
+      }
+
+      .recommendation-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+
+      .recommendation h3 {
+        font-family: "Space Grotesk";
+        font-size: 20px;
+      }
+
+      .difficulty {
+        background: #171914;
+        color: white;
+
+        padding: 7px 10px;
+
+        border-radius: 20px;
+
+        font-size: 10px;
+
+        height: max-content;
+      }
+
+      .recommendation p {
+        color: #707169;
+
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        margin-top: 6px;
+      }
+
+      .meta {
+        display: flex;
+        gap: 8px;
+
+        margin: 12px 0;
+      }
+
+      .meta span {
+        background: #efede5;
+
+        padding: 6px 8px;
+
+        border-radius: 8px;
+
+        font-size: 11px;
+      }
+
+      details {
+        border-top: 1px solid #ddd9cf;
+
+        padding-top: 12px;
+
+        margin-top: 12px;
+      }
+
+      summary {
+        cursor: pointer;
+
+        font-size: 13px;
+
+        font-weight: 700;
+      }
+
+      .steps {
+        padding-left: 20px;
+
+        margin-top: 12px;
+
+        line-height: 1.8;
+
+        font-size: 13px;
+
+        color: #55564f;
+      }
+
+      /* ================= RESALE ================= */
+
+      .resale {
+        background: #d6ff77;
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 70px;
+
+        align-items: center;
+      }
+
+      .resale p {
+        max-width: 540px;
+
+        line-height: 1.7;
+
+        color: #404733;
+
+        margin-bottom: 25px;
+      }
+
+      .loop-card {
+        background: #171914;
+
+        min-height: 350px;
+
+        border-radius: 35px;
+
+        color: white;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 35px;
+
+        padding: 35px;
+      }
+
+      .loop-circle {
+        width: 190px;
+        height: 190px;
+
+        border: 1px solid #c8ef7a;
+
+        border-radius: 50%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        font-family: "Space Grotesk";
+
+        font-size: 27px;
+
+        color: #d6ff77;
+      }
+
+      .loop {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 10px;
+
+        font-size: 10px;
+
+        letter-spacing: 1px;
+
+        color: #bbbdb4;
+      }
+
+      .loop b {
+        color: #d6ff77;
+      }
+
+      /* ================= MODAL ================= */
+
+      .modal {
+        position: fixed;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.6);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        z-index: 200;
+      }
+
+      .modal-box {
+        background: #f3f0e8;
+
+        width: min(500px, 90%);
+
+        border-radius: 25px;
+
+        padding: 30px;
+
+        position: relative;
+      }
+
+      .modal-box h2 {
+        font-family: "Space Grotesk";
+
+        font-size: 35px;
+
+        margin: 15px 0;
+      }
+
+      .modal-box p {
+        color: #777;
+
+        line-height: 1.6;
+
+        margin-bottom: 20px;
+      }
+
+      .modal-box input {
+        width: 100%;
+
+        padding: 13px;
+
+        border: 1px solid #ccc8bc;
+
+        border-radius: 12px;
+
+        margin-bottom: 10px;
+      }
+
+      .close {
+        position: absolute;
+
+        right: 18px;
+
+        top: 12px;
+
+        background: none;
+
+        border: none;
+
+        font-size: 30px;
+
+        cursor: pointer;
+      }
+
+      /* ================= FOOTER ================= */
+
+      footer {
+        padding: 35px 8%;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        border-top: 1px solid #d3d0c6;
+
+        color: #777;
+
+        font-size: 12px;
+      }
+
+      /* ================= MOBILE ================= */
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-visual {
+          height: 400px;
+        }
+
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .studio-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .resale {
+          grid-template-columns: 1fr;
+        }
+
+        .studio-heading {
+          flex-direction: column;
+          align-items: start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+      <div class="logo">♻ <span>RE:FIT</span></div>
+
+      <div class="nav-links">
+        <a href="#how">How it works</a>
+
+        <a href="#studio">AI Studio</a>
+
+        <a href="#resale">Resale</a>
+      </div>
+
+      <button class="nav-button" onclick="scrollToStudio()">Try AI</button>
+    </nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+      <div>
+        <div class="eyebrow">AI THRIFT × REDESIGN × CIRCULAR ECONOMY</div>
+
+        <h1>
+          One old piece.<br />
+          <span>Infinite</span><br />
+          new styles.
+        </h1>
+
+        <p class="hero-description">
+          Don't just sell clothes you no longer wear. Upload one old item and
+          RE:FIT helps you turn it into something new with simple DIY redesign
+          instructions.
+        </p>
+
+        <div class="buttons">
+          <button class="primary-button" onclick="scrollToStudio()">
+            Scan my item →
+          </button>
+
+          <button
+            class="secondary-button"
+            onclick="document.getElementById('how').scrollIntoView()"
+          >
+            See the process
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="ai-label">● AI VISION READY</div>
+
+        <div class="fake-shirt">👕</div>
+      </div>
+    </section>
+
+    <!-- ================= PROCESS ================= -->
+
+    <section id="how" class="dark-section">
+      <div class="section-label">THE RE:FIT LOOP</div>
+
+      <h2 class="section-title">From forgotten to <span>fresh.</span></h2>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="process-number">01</div>
+
+          <div class="process-icon">📸</div>
+
+          <h3>SCAN</h3>
+
+          <p>
+            Upload a photo of your old clothing. Our AI analyzes its type,
+            condition, material and reusable parts.
+          </p>
+        </div>
+
+        <div class="process-card featured">
+          <div class="process-number">02</div>
+
+          <div class="process-icon">✦</div>
+
+          <h3>AI REDESIGN</h3>
+
+          <p>
+            AI creates realistic redesign ideas based on your skill level,
+            preferred style and available time.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">03</div>
+
+          <div class="process-icon">♻</div>
+
+          <h3>KEEP THE LOOP</h3>
+
+          <p>
+            Wear your redesigned piece again, or send it to a RE:FIT center for
+            resale.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= AI STUDIO ================= -->
+
+    <section id="studio" class="studio">
+      <div class="section-label">AI REDESIGN STUDIO</div>
+
+      <div class="studio-heading">
+        <div>
+          <h2 class="section-title">
+            Give your old clothes<br />
+            <span>a second life.</span>
+          </h2>
+        </div>
+
+        <p>
+          Upload a clear photo of one item. Tell us your style and skill level.
+          RE:FIT will create redesign ideas you can actually try at home.
+        </p>
+      </div>
+
+      <div class="studio-grid">
+        <!-- UPLOAD -->
+
+        <div class="panel">
+          <label class="upload-box" for="imageInput" id="uploadBox">
+            <input type="file" id="imageInput" accept="image/*" hidden />
+
+            <div id="uploadText">
+              <div class="upload-icon">↑</div>
+
+              <h3>Drop your clothing photo here</h3>
+
+              <p>
+                or click to browse
+                <br />
+                JPG · PNG · WEBP
+              </p>
+            </div>
+
+            <img id="preview" class="hidden" />
+          </label>
+
+          <div class="form">
+            <div class="form-group">
+              <label> Your skill </label>
+
+              <select id="skill">
+                <option>Beginner</option>
+
+                <option>Basic</option>
+
+                <option>Intermediate</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label> Preferred style </label>
+
+              <select id="style">
+                <option>Minimal</option>
+
+                <option>Streetwear</option>
+
+                <option>Vintage</option>
+
+                <option>Cute</option>
+
+                <option>Experimental</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label> Available time </label>
+
+              <select id="time">
+                <option>Under 1 hour</option>
+
+                <option>1–2 hours</option>
+
+                <option>Weekend project</option>
+              </select>
+            </div>
+
+            <div class="form-group full">
+              <label> Anything else? </label>
+
+              <textarea
+                id="notes"
+                rows="3"
+                placeholder="Example: I don't have a sewing machine..."
+              ></textarea>
+            </div>
+          </div>
+
+          <button
+            id="analyzeButton"
+            class="primary-button"
+            style="width: 100%; margin-top: 18px"
+            disabled
+          >
+            ✦ Analyze & redesign
+          </button>
+        </div>
+
+        <!-- RESULT -->
+
+        <div class="panel result" id="result">
+          <div class="empty-result">
+            <div class="empty-circle">✦</div>
+
+            <h3>Your AI redesign plan will appear here</h3>
+
+            <p>Upload an item and click "Analyze & redesign".</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= RESALE ================= -->
+
+    <section id="resale" class="resale">
+      <div>
+        <div class="section-label">CIRCULAR MARKETPLACE</div>
+
+        <h2 class="section-title">
+          Don't want to DIY?<br />
+
+          <span> Keep the loop going. </span>
+        </h2>
+
+        <p>
+          After redesigning, you can wear the piece again. If you no longer want
+          it, send it to a RE:FIT center. We inspect it, redesign it if
+          necessary, and put it back on the marketplace.
+        </p>
+
+        <button class="primary-button" onclick="openModal()">
+          Send to RE:FIT Center →
+        </button>
+      </div>
+
+      <div class="loop-card">
+        <div class="loop-circle">RE:FIT</div>
+
+        <div class="loop">
+          <span>OLD ITEM</span>
+
+          <b>→</b>
+
+          <span>REDESIGN</span>
+
+          <b>→</b>
+
+          <span>WEAR</span>
+
+          <b>→</b>
+
+          <span>RESALE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+      <div class="logo">♻ RE:FIT</div>
+
+      <div>AI Thrift & Upcycle</div>
+    </footer>
+
+    <!-- ================= MODAL ================= -->
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-box">
+        <button class="close" onclick="closeModal()">×</button>
+
+        <div class="section-label">RE:FIT CENTER</div>
+
+        <h2>Give your clothes another life.</h2>
+
+        <p>
+          Submit your redesigned item to the RE:FIT center. In the full version,
+          our team would inspect, redesign, photograph and list it for resale.
+        </p>
+
+        <input id="name" placeholder="Your name" />
+
+        <input id="email" placeholder="Email" />
+
+        <button
+          class="primary-button"
+          style="width: 100%; margin-top: 10px"
+          onclick="submitItem()"
+        >
+          Submit item →
+        </button>
+      </div>
+    </div>
+
+    <script>
+      /* ================= IMAGE UPLOAD ================= */
+
+      const imageInput = document.getElementById("imageInput");
+
+      const preview = document.getElementById("preview");
+
+      const uploadText = document.getElementById("uploadText");
+
+      const analyzeButton = document.getElementById("analyzeButton");
+
+      const result = document.getElementById("result");
+
+      let selectedImage = null;
+
+      imageInput.addEventListener("change", function () {
+        const file = this.files[0];
+
+        if (!file) return;
+
+        selectedImage = file;
+
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+
+          preview.classList.remove("hidden");
+
+          uploadText.classList.add("hidden");
+
+          analyzeButton.disabled = false;
+        };
+
+        reader.readAsDataURL(file);
+      });
+
+      /* ================= SCROLL ================= */
+
+      function scrollToStudio() {
+        document.getElementById("studio").scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+
+      /* ================= AI ANALYSIS ================= */
+
+      analyzeButton.addEventListener("click", function () {
+        if (!selectedImage) return;
+
+        analyzeButton.innerHTML = "✦ AI is analyzing...";
+
+        analyzeButton.disabled = true;
+
+        result.innerHTML = `
+
+<div class="empty-result">
+
+<div class="empty-circle">
+✦
+</div>
+
+<h3>
+Scanning your clothing...
+</h3>
+
+<p>
+AI is identifying the material,
+condition and redesign possibilities.
+</p>
+
+</div>
+
+`;
+
+        setTimeout(function () {
+          generateAIResult();
+        }, 1800);
+      });
+
+      /* ================= AI RESULT ================= */
+
+      function generateAIResult() {
+        const skill = document.getElementById("skill").value;
+
+        const style = document.getElementById("style").value;
+
+        const time = document.getElementById("time").value;
+
+        result.innerHTML = `
+
+<div class="item-info">
+
+<div class="section-label">
+AI ITEM SCAN
+</div>
+
+<h3>
+Old Cotton Shirt
+</h3>
+
+<p>
+AI detected a reusable cotton shirt
+with enough fabric for redesign.
+</p>
+
+<div class="tag-container">
+
+<span class="tag">
+Cotton
+</span>
+
+<span class="tag">
+White
+</span>
+
+<span class="tag">
+Condition: 7/10
+</span>
+
+<span class="tag">
+Reusable
+</span>
+
+</div>
+
+<p style="margin-top:10px">
+
+AI confidence:
+<strong>91%</strong>
+
+</p>
+
+</div>
+
+
+
+<div class="section-label">
+RECOMMENDED REDESIGNS
+</div>
+
+
+
+${createRecommendation(
+  "Cropped Overshirt",
+  "Easy",
+  "30–60 min",
+  "Turn the old shirt into a modern cropped overshirt.",
+  [
+    "Place the shirt flat on a clean surface.",
+    "Mark the new length with fabric chalk.",
+    "Cut along the marked line.",
+    "Fold the raw edge inward 1–2 cm.",
+    "Sew the edge to create a clean finish.",
+    "Try the shirt on and adjust the length.",
+  ],
+)}
+
+
+
+${createRecommendation(
+  "Patchwork Tote Bag",
+  "Medium",
+  "60–90 min",
+  "Reuse the shirt fabric to create a tote bag.",
+  [
+    "Remove buttons and other reusable details.",
+    "Cut two large rectangular fabric pieces.",
+    "Place the pieces together.",
+    "Sew both sides and the bottom.",
+    "Create the bottom corners.",
+    "Attach two handles.",
+  ],
+)}
+
+
+
+${createRecommendation(
+  "Statement Shirt",
+  "Very Easy",
+  "20–45 min",
+  "Keep the shirt shape but completely change its appearance.",
+  [
+    "Choose an area on the chest or sleeve.",
+    "Draw a simple design with fabric chalk.",
+    "Add embroidery or a fabric patch.",
+    "Secure all threads.",
+    "Wash gently to test durability.",
+  ],
+)}
+
+
+
+<div style="
+margin-top:15px;
+background:#171914;
+color:white;
+padding:18px;
+border-radius:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+">
+
+<div>
+
+<strong>
+♻ Keep the loop going
+</strong>
+
+<br>
+
+<span style="
+font-size:11px;
+color:#aaa;
+">
+
+Wear it again or send it
+to a RE:FIT Center.
+
+</span>
+
+</div>
+
+<button
+onclick="openModal()"
+style="
+border:0;
+background:#d6ff77;
+padding:10px 15px;
+border-radius:20px;
+font-weight:bold;
+cursor:pointer;
+">
+
+Resale →
+
+</button>
+
+</div>
+
+`;
+
+        analyzeButton.innerHTML = "✦ Analyze & redesign";
+
+        analyzeButton.disabled = false;
+      }
+
+      /* ================= RECOMMENDATION ================= */
+
+      function createRecommendation(
+        title,
+        difficulty,
+        time,
+        description,
+        steps,
+      ) {
+        return `
+
+<div class="recommendation">
+
+<div class="recommendation-header">
+
+<div>
+
+<h3>
+${title}
+</h3>
+
+<p>
+${description}
+</p>
+
+</div>
+
+<span class="difficulty">
+${difficulty}
+</span>
+
+</div>
+
+
+<div class="meta">
+
+<span>
+⏱ ${time}
+</span>
+
+<span>
+✂ Basic tools
+</span>
+
+</div>
+
+
+<details>
+
+<summary>
+Show step-by-step process
+</summary>
+
+<ol class="steps">
+
+${steps.map((step) => `<li>${step}</li>`).join("")}
+
+</ol>
+
+</details>
+
+</div>
+
+`;
+      }
+
+      /* ================= MODAL ================= */
+
+      function openModal() {
+        document.getElementById("modal").classList.remove("hidden");
+      }
+
+      function closeModal() {
+        document.getElementById("modal").classList.add("hidden");
+      }
+
+      function submitItem() {
+        const name = document.getElementById("name").value;
+
+        const email = document.getElementById("email").value;
+
+        if (!name || !email) {
+          alert("Please enter your name and email.");
+
+          return;
+        }
+
+        const reference =
+          "RF-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+
+        closeModal();
+
+        alert("Your item has been submitted!\\n\\nReference: " + reference);
+      }
+
+      /* ================= DRAG & DROP ================= */
+
+      const uploadBox = document.getElementById("uploadBox");
+
+      uploadBox.addEventListener("dragover", function (e) {
+        e.preventDefault();
+
+        uploadBox.style.borderColor = "#638e35";
+      });
+
+      uploadBox.addEventListener("dragleave", function () {
+        uploadBox.style.borderColor = "#aaa99e";
+      });
+
+      uploadBox.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        const file = e.dataTransfer.files[0];
+
+        if (!file) return;
+
+        selectedImage = file;
+
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+          preview.src = event.target.result;
+
+          preview.classList.remove("hidden");
+
+          uploadText.classList.add("hidden");
+
+          analyzeButton.disabled = false;
+        };
+
+        reader.readAsDataURL(file);
+      });
+    </script>
+  </body>
+</html>
